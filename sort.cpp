@@ -1,4 +1,5 @@
-#include <iostrem>
+#include <iostream>
+#include <stdio.h>
 
 
 using namespace std;
@@ -6,12 +7,12 @@ using namespace std;
 
 // SelectionSort
 /* Algoritmo de ordenação por seleção, onde...*/ 
-void selection(int &v, int n){
-	int menor = 0, aux;
-
-	for(int i = 0; i < n; i++){
-		for(j = i + 1; j < n; j++){
-			if(v[i] > v[j]){
+void selection(int n, int v[]){
+	int menor, aux;
+	for(int i = 0; i < n - 1; i++){
+		menor  = i;
+		for(int j = i + 1; j < n; j++){
+			if(v[menor] > v[j]){
 				menor = j;
 			}
 			if (i != menor){ // Change of values
@@ -21,20 +22,23 @@ void selection(int &v, int n){
 			}
 		}
 	}
+	//return v;
 }
 
+/*
+
 // InsertionSort
-/* Algoritmo de ordenação por inserção, onde ... */
+// Algoritmo de ordenação por inserção, onde ... 
 void insert(){
 
 }
 
-/* Algoritmo de ordenação por pivoteamento (separação), onde...*/
+// Algoritmo de ordenação por pivoteamento (separação), onde...
 void quick(){
 
 }
 
-/* Algoritmo de ordenação por junção, onde...*/
+// Algoritmo de ordenação por junção, onde...
 void merge(int &v, int n, int m){
 	int *tmp = (int*)malloc(n*sizeof(int));
 	for (int p = 0, int q = m, int r = 0; r < n; r++){
@@ -59,21 +63,21 @@ void merge(int &v, int n, int m){
 }
 
 
-/* Efetua a troca dos valores no vetor. */
+// Efetua a troca dos valores no vetor.
 void change(int &v[], maior, i - 1){
 
 }
  
-
+*/
 int main(){
 
-	int n = 10;
-	int vetor[n] = {3, 0, 5, 2, 6, 9, 7, 1, 8, 4};	
-	cout << vetor << endl;
-
-	
-
-
+	int n = 9;
+	int vetor[n] = {3, 0, 5, 2, 6, 9, 7, 1, 8, 4};
+	selection(n, vetor);
+	//cout << vetor << endl;
+	for(int i = 0; i < n; i++){
+		printf("%d -", vetor[i]);
+	}
 
 	return 0;
 }
